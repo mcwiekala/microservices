@@ -35,4 +35,5 @@ build/
 ### Project ###
 # credentials!
 twitter4j.properties
-twitter-to-kafka-service/logs/*
+twitter-to-kafka-service/logs
+twitter-to-kafka-service/twitter-to-kafka-service/logs
