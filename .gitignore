@@ -33,7 +33,9 @@ build/
 .vscode/
 
 ### Project ###
-# credentials!
+# Twitter credentials!
 twitter4j.properties
+# LOGS
 twitter-to-kafka-service/logs
 twitter-to-kafka-service/twitter-to-kafka-service/logs
+docker-compose/docker-logs/*

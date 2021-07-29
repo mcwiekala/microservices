@@ -2,6 +2,6 @@
 docker run -it --network=host confluentinc/cp-kafkacat kafkacat -L -b localhost:19092
 
 ### docker
-docker-compose -f common.yml -f kafka_cluster.yml up -d
+docker-compose -f common.yml -f kafka_cluster.yml -f services.yml up -d
 
 
