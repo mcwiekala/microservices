@@ -31,12 +31,12 @@ public class TwitterKafkaConsumer implements KafkaConsumer<Long, TwitterAvroMode
     }
 
     @Override
-    @KafkaListener(id = "twitterTopicListener", topics = "${kafka-config.topic-name")
+    @KafkaListener(id = "twitterTopicListener", topics = "${kafka-config.topic-name}")
     public void receive(@Payload List<TwitterAvroModel> messages,
                         @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<Integer> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
-        LOG.info("{} number of message received with keys {}, partitions {} and offests {}, sending it to elastic: Thread id {}",
+        LOG.info("{} number of message received with keys {}, partitions {} and offsets {}, sending it to elastic. Thread id {}",
                 messages.size(), keys.toString(), partitions.toString(), offsets.toString(), Thread.currentThread().getId());
 
     }
