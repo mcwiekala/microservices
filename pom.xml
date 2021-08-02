@@ -12,6 +12,8 @@
         <module>kafka/kafka-producer</module>
         <module>common-config</module>
         <module>config-server</module>
+        <module>kafka-consumer</module>
+        <module>kafka-to-elastic-service</module>
     </modules>
 
     <parent>
@@ -78,6 +80,13 @@
                 <artifactId>kafka-producer</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>pl.microservices.demo</groupId>
+                <artifactId>kafka-consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- EXTERNAL -->
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -155,12 +164,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>jasypt-spring-boot-starter</artifactId>
-                <version>${jasypt-spring-boot-starter.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-avro-serializer</artifactId>
                 <version>${kafka-avro-serializer.version}</version>
@@ -183,8 +186,6 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 

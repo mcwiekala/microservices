@@ -6,15 +6,10 @@ spring:
       server:
         git:
           uri: https://github.com/mcwiekala/config-server-repository
-          clone-on-start: true
           default-label: master
+          clone-on-start: true
       fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: ENC(XQGf3feagj/9+blpe3SC3H4qT03JnIIdkxbv4XahXW/NJGZAh7PjEUBQe1Ay4hHP)
-
-
-jasypt:
-  encryptor:
-    password: ${JASYPT_ENCRYPTOR_PASSWORD}
+      password: '{cipher}7940e5b661c4443db5526ed186fd44de0af278b01c805eb096636f6c32d6d87d'

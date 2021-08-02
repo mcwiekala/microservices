@@ -17,7 +17,6 @@ public class KafkaConsumerConfigData {
     private String specificAvroReader;
     private Boolean batchListener;
     private Boolean autoStartup;
-
     private Integer concurrencyLevel;
     private Integer sessionTimeoutMs;
     private Integer heartbeatIntervalMs;
