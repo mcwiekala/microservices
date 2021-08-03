@@ -51,7 +51,7 @@ public class KafkaAdminClient {
     }
 
     private CreateTopicsResult doCreateTopics(RetryContext retryContext) {
-        List<String> topicNames = kafkaConfigData.getTopicNameToCreate();
+        List<String> topicNames = kafkaConfigData.getTopicNamesToCreate();
         LOG.info("Creating {} topic(s), attempt {}", topicNames.size(), retryContext.getRetryCount());
         List<NewTopic> newTopics = topicNames.stream().map(topic -> new NewTopic(
                 topic.trim(),
@@ -72,7 +72,7 @@ public class KafkaAdminClient {
     }
 
     private Collection<TopicListing> doGetTopics(RetryContext retryContext) throws ExecutionException, InterruptedException {
-        LOG.info("Reading Kafka topic {}, attempt{}", kafkaConfigData.getTopicNameToCreate(), retryContext.getRetryCount());
+        LOG.info("Reading Kafka topic {}, attempt{}", kafkaConfigData.getTopicNamesToCreate(), retryContext.getRetryCount());
         Collection<TopicListing> topics = adminClient.listTopics().listings().get();
         if (topics != null) {
             topics.forEach(topic -> LOG.info("Topic with name {}", topic.name()));
@@ -87,7 +87,7 @@ public class KafkaAdminClient {
         Integer multiplier = retryConfigData.getMultiplier().intValue();
         Long sleepTimeMs = retryConfigData.getSleepTimeMs();
 
-        for (String topic : kafkaConfigData.getTopicNameToCreate()) {
+        for (String topic : kafkaConfigData.getTopicNamesToCreate()) {
             while (!isTopicCreated(topics, topic)) {
                 checkMaxRetry(retryCount++, maxRetry);
                 sleep(sleepTimeMs);
