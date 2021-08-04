@@ -40,6 +40,8 @@ twitter-to-kafka-service/logs
 twitter-to-kafka-service/twitter-to-kafka-service/logs
 docker-compose/docker-logs/*
 elastic-query-service/logs/*
+config-server/logs/*
+elastic-query-web-client/logs/*
 
 # git submodule:
 config-server-repository/*

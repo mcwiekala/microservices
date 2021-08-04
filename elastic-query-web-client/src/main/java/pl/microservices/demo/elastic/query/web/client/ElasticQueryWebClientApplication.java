@@ -12,5 +12,4 @@ public class ElasticQueryWebClientApplication {
         SpringApplication.run(ElasticQueryWebClientApplication.class, args);
     }
 
-
 }

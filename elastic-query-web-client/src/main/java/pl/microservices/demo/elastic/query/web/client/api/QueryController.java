@@ -36,10 +36,10 @@ public class QueryController {
 
     @PostMapping("/query-by-text")
     public String queryByText(@Valid ElasticQueryWebClientRequestModel requestModel, Model model) {
-        LOG.info("");
+        LOG.info("Querying with text '{}'", requestModel.getText());
         List<ElasticQueryWebClientResponseModel> responseModels = new ArrayList<>();
         responseModels.add(ElasticQueryWebClientResponseModel.builder().id("1").text(requestModel.getText()).build());
-        model.addAttribute("elasticQueryWebClientResponseModel", responseModels);
+        model.addAttribute("elasticQueryWebClientResponseModels", responseModels);
         model.addAttribute("searchText", requestModel.getText());
         model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
 
