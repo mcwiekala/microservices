@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
 import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
+import pl.microservices.demo.elastic.query.web.client.service.ElasticQueryWebClient;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -17,6 +18,12 @@ import java.util.List;
 public class QueryController {
 
     private static final Logger LOG = LoggerFactory.getLogger(QueryController.class);
+
+    private final ElasticQueryWebClient elasticQueryWebClient;
+
+    public QueryController(ElasticQueryWebClient elasticQueryWebClient) {
+        this.elasticQueryWebClient = elasticQueryWebClient;
+    }
 
     @GetMapping("")
     public String index() {
@@ -37,8 +44,8 @@ public class QueryController {
     @PostMapping("/query-by-text")
     public String queryByText(@Valid ElasticQueryWebClientRequestModel requestModel, Model model) {
         LOG.info("Querying with text '{}'", requestModel.getText());
-        List<ElasticQueryWebClientResponseModel> responseModels = new ArrayList<>();
-        responseModels.add(ElasticQueryWebClientResponseModel.builder().id("1").text(requestModel.getText()).build());
+        List<ElasticQueryWebClientResponseModel> responseModels = elasticQueryWebClient.getDataByText(requestModel);
+
         model.addAttribute("elasticQueryWebClientResponseModels", responseModels);
         model.addAttribute("searchText", requestModel.getText());
         model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
