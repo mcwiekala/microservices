@@ -39,6 +39,7 @@ twitter4j.properties
 twitter-to-kafka-service/logs
 twitter-to-kafka-service/twitter-to-kafka-service/logs
 docker-compose/docker-logs/*
+elastic-query-service/logs/*
 
 # git submodule:
 config-server-repository/*
