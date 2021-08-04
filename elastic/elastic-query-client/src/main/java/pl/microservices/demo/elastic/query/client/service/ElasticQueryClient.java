@@ -8,6 +8,6 @@ public interface ElasticQueryClient<T extends IndexModel> {
 
     T getIndexModelById(String id);
     List<T> getIndexModelByText(String text);
-    List<T> getAllIndexModels(String text);
+    List<T> getAllIndexModels();
 
 }
