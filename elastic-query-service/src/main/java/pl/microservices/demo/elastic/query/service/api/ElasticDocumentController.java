@@ -16,7 +16,6 @@ import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceResp
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

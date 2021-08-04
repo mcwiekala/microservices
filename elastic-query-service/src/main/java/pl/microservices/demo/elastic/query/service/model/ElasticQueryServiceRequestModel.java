@@ -13,8 +13,8 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class ElasticQueryServiceRequestModel {
 
-     private String id;
-     @NotEmpty
-     private String text;
+    private String id;
+    @NotEmpty
+    private String text;
 
 }
