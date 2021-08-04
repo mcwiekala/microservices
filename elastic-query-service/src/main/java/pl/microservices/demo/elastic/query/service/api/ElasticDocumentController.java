@@ -14,6 +14,8 @@ import pl.microservices.demo.elastic.query.service.business.ElasticQueryService;
 import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceRequestModel;
 import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceResponseModel;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class ElasticDocumentController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable String id) {
+    public ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable @NotEmpty String id) {
         ElasticQueryServiceResponseModel elasticQueryServiceResponseModel = elasticQueryService.getDocumentById(id);
         LOG.info("Elasticsearch returned document with id {}", id);
         return ResponseEntity.ok(elasticQueryServiceResponseModel);
@@ -46,7 +48,7 @@ public class ElasticDocumentController {
     @PostMapping("/get-document-by-text")
     @ResponseBody
     public ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentByText(
-            @RequestBody ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
+            @RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
         List<ElasticQueryServiceResponseModel> response = elasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText());
         LOG.info("Elasticsearch returned '{}' of documents", response.size());
         return ResponseEntity.ok(response);
