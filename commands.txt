@@ -11,5 +11,5 @@ docker-compose -f common.yml -f kafka_cluster.yml up -d
 # run
 docker-compose -f common.yml -f kafka_cluster.yml -f services.yml up
 
-mvn install -DskipTests
+mvn clean install -DskipTests
 
