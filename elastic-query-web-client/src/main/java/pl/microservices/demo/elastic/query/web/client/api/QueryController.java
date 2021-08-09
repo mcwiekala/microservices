@@ -6,12 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
+import pl.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import pl.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import pl.microservices.demo.elastic.query.web.client.service.ElasticQueryWebClient;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

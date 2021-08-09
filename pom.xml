@@ -18,6 +18,8 @@
         <module>common-util</module>
         <module>elastic-query-service</module>
         <module>elastic-query-web-client</module>
+        <module>elastic-query-service-common</module>
+        <module>elastic-query-web-client-common</module>
     </modules>
 
     <parent>
@@ -64,6 +66,16 @@
             <dependency>
                 <groupId>pl.microservices.demo</groupId>
                 <artifactId>app-config-data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.microservices.demo</groupId>
+                <artifactId>elastic-query-service-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.microservices.demo</groupId>
+                <artifactId>elastic-query-web-client-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

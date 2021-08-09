@@ -1,4 +1,4 @@
-package pl.microservices.demo.elastic.query.web.client.api.error.handler;
+package pl.microservices.demo.elastic.query.web.client.common.api.error.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
+import pl.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
 
 
 import java.util.HashMap;

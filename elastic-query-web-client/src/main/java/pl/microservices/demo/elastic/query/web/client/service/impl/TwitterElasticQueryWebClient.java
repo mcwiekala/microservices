@@ -12,13 +12,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import pl.microservices.demo.config.ElasticQueryWebClientConfigData;
-import pl.microservices.demo.elastic.query.web.client.exception.ElasticQueryWebClientException;
-import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import pl.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
+import pl.microservices.demo.elastic.query.web.client.common.exception.ElasticQueryWebClientException;
+import pl.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import pl.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import pl.microservices.demo.elastic.query.web.client.service.ElasticQueryWebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+
 
 @Service
 public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {

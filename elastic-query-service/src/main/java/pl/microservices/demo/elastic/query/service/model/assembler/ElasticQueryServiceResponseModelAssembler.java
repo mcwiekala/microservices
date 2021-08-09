@@ -4,8 +4,7 @@ import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSuppor
 import org.springframework.stereotype.Component;
 import pl.microservices.demo.elastic.model.index.impl.TwitterIndexModel;
 import pl.microservices.demo.elastic.query.service.api.ElasticDocumentController;
-import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceRequestModel;
-import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceResponseModel;
+import pl.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import pl.microservices.demo.elastic.query.service.transformer.ElasticToResponseModelTransformer;
 
 import java.util.List;

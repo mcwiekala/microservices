@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pl.microservices.demo.elastic.query.service.business.ElasticQueryService;
-import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceRequestModel;
-import pl.microservices.demo.elastic.query.service.model.ElasticQueryServiceResponseModel;
+import pl.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
+import pl.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
