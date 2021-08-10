@@ -35,7 +35,6 @@ public class WebClientConfig {
                 .build();
     }
 
-
     private TcpClient getTcpClient() {
         return TcpClient
                 .create()

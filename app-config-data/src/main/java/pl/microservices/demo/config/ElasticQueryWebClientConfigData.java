@@ -28,7 +28,7 @@ public class ElasticQueryWebClientConfigData {
     }
 
     @Data
-    public static class Query{
+    public static class Query {
         private String method;
         private String accept;
         private String uri;

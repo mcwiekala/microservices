@@ -43,17 +43,17 @@ public class QueryController {
         return "error";
     }
 
-    @PostMapping("/query-by-text")
+    @PostMapping(value = "/query-by-text")
     public String queryByText(@Valid ElasticQueryWebClientRequestModel requestModel, Model model) {
         Flux<ElasticQueryWebClientResponseModel> responseModel = elasticQueryWebClient.getDataByText(requestModel);
         responseModel = responseModel.log();
-        IReactiveDataDriverContextVariable reactiveData = new ReactiveDataDriverContextVariable(responseModel,1);
-
-        model.addAttribute("elasticQueryClientResponseModels", responseModel);
+        IReactiveDataDriverContextVariable reactiveData =
+                new ReactiveDataDriverContextVariable(responseModel, 1);
+        model.addAttribute("elasticQueryClientResponseModels", reactiveData);
         model.addAttribute("searchText", requestModel.getText());
-        model.addAttribute("elasticQueryClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
-
-        LOG.info("Returning from reactive client controller for text: '{}'", requestModel.getText());
+        model.addAttribute("elasticQueryClientRequestModel",
+                ElasticQueryWebClientRequestModel.builder().build());
+        LOG.info("Returning from reactive client controller for text {} !", requestModel.getText());
         return "home";
     }
 

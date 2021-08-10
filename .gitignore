@@ -42,6 +42,8 @@ docker-compose/docker-logs/*
 elastic-query-service/logs/*
 config-server/logs/*
 elastic-query-web-client/logs/*
+reactive-elastic-query-web-client/logs/*
+reactive-elastic-query-service/logs/*
 
 # git submodule:
 config-server-repository/*

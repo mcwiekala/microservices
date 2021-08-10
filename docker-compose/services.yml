@@ -1,6 +1,5 @@
 version: '3.7'
 services:
-
   twitter-to-kafka-service:
     image: ${GROUP_ID}/twitter.to.kafka.service:${SERVICE_VERSION:-latest}
     ports:
@@ -11,13 +10,14 @@ services:
     user: root
     entrypoint: ["check-config-server-started.sh"]
     depends_on:
+      - config-server
       - kafka-broker-1
       - kafka-broker-2
       - kafka-broker-3
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_PL_MICROSERVICES_DEMO=info"
-      - "LOGGING_LEVEL_ROOT=info"
+      - "LOGGING_LEVEL_PL_MICROSERVICES_DEMO=error"
+      - "LOGGING_LEVEL_ROOT=error"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
@@ -47,8 +47,8 @@ services:
       - elastic-3
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_PL_MICROSERVICES_DEMO=info"
-      - "LOGGING_LEVEL_ROOT=info"
+      - "LOGGING_LEVEL_PL_MICROSERVICES_DEMO=error"
+      - "LOGGING_LEVEL_ROOT=error"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
@@ -67,7 +67,7 @@ services:
     volumes:
       - "./docker-logs:/workspace/config-server/logs"
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
     networks:
       - ${GLOBAL_NETWORK:-services}
@@ -84,7 +84,6 @@ services:
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
       - config-server
-      - kafka-to-elastic-service
       - elastic-1
       - elastic-2
       - elastic-3
@@ -113,7 +112,6 @@ services:
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
       - config-server
-      - kafka-to-elastic-service
       - elastic-1
       - elastic-2
       - elastic-3
@@ -144,7 +142,7 @@ services:
       - config-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5010 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_PL_MICROSERVICES_DEMO=info"
       - "LOGGING_LEVEL_ROOT=info"
       - "SERVER_PORT=8184"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-web-client"
