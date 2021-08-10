@@ -48,7 +48,7 @@ public class ElasticQueryWebClientErrorHandler {
     @ExceptionHandler(RuntimeException.class)
     public String handle(RuntimeException exception, Model model){
         LOG.error("Service runtime exception!", exception);
-        model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
+        model.addAttribute("elasticQueryClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
         model.addAttribute("error", "Could not get response! " + exception.getMessage());
         model.addAttribute("error_description", "Service runtime exception!" + exception.getMessage());
         return "home";
@@ -60,7 +60,7 @@ public class ElasticQueryWebClientErrorHandler {
         Map<String, String> errors = new HashMap<>();
         exception.getBindingResult().getAllErrors().forEach(error -> errors.put(((FieldError)error).getField(), error.getDefaultMessage()));
 
-        model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
+        model.addAttribute("elasticQueryClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
         model.addAttribute("error", HttpStatus.BAD_REQUEST.getReasonPhrase());
         model.addAttribute("error_description", errors);
         return "home";
