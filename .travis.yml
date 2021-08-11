@@ -1,0 +1,15 @@
+language: java
+
+jdk:
+  - oraclejdk11
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - ./mvnw clean install
+
+branches:
+  only:
+    - master
