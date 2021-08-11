@@ -18,14 +18,14 @@ GUI is based on Thymeleaf
 > The project is based on 12 factor methodology
 > https://12factor.net/
 
-####Swagger documentation
+###### Swagger documentation
 Good documented API is crucial to sucessfull comunication across different teams. I decided to use Swagger as a POC of elastic-query-service microservice
 You can check it locally [here](http://localhost:8183/elastic-query-service/swagger-ui) (remember to change the password!):
 
-####API versioning
+###### API versioning
 The big challange in distributed systems is to manage API changes. I decided to try 2 API approches. 
 
-####Reactive Streams
+###### Reactive Streams
 I decided to add reactive modules to see the changes from Twitter in real time. Right now there is blocking and reactive module in the same time, because it's in progress.
 - `reactive-elastic-query-service` alternative to `elastic-query-service`
 - `reactive-elastic-query-web-client`alternative to `elastic-query-web-client`
@@ -38,6 +38,7 @@ I decided to add reactive modules to see the changes from Twitter in real time. 
 * Elasticsearch
 * Thymeleaf
 * Docker
+* Maven
 	
 ## Setup
 This project uses Spring Cloud CLI to encrypt configurations using  Java Cryptography Extension (JCE).  
@@ -80,7 +81,7 @@ To run kafka and elastic cluster you can run:
 docker-compose -f common.yml -f kafka_cluster.yml -f elastic_cluster.yml up -d
 ```
 
-####Twitter Connector
+###### Twitter Connector
 By default tweets are generated based on Lorem Ipsum placeholders. To activate real tweets you have to:
 
 Sign up to [Twitter Developer](https://developer.twitter.com/en)
