@@ -1,7 +1,14 @@
+Twitter Micro Demo
+============
+[![Build Status](https://travis-ci.com/mcwiekala/microservices.svg?branch=master)](https://travis-ci.com/mcwiekala/microservices)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue)](https://www.linkedin.com/in/micha%C5%82-%C4%87wi%C4%99ka%C5%82a-55b3a4118/)
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Postman](#postman)
 * [Architecture](#Architecture)
 * [License](#License)
 
@@ -105,6 +112,10 @@ oauth.consumerSecret=
 oauth.accessToken=
 oauth.accessTokenSecret=
 ```
+
+## Postman
+Postman collection was created to check some functionality.
+Import postman project from `/postman` to view the requests.
 
 ## Architecture
 docs in progress...
