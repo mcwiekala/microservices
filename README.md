@@ -1,6 +1,5 @@
 Twitter Micro Demo
 ============
-[![Build Status](https://travis-ci.com/mcwiekala/microservices.svg?branch=master)](https://travis-ci.com/mcwiekala/microservices)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue)](https://www.linkedin.com/in/micha%C5%82-%C4%87wi%C4%99ka%C5%82a-55b3a4118/)
 
